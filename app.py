@@ -1,21 +1,44 @@
 import tkinter as tk 
+from tkinter import  ttk
 
 def open_add_stay_window():
     add_window = tk.Toplevel(root)
     add_window.title("เพิ่มข้อมูลเข้าพัก")
     add_window.geometry("600x400")
     
-    label = tk.Label(
+    tk.Label(
         add_window,
         text="หน้าฟอร์มเพิ่มข้อมูลเข้าพัก",
-        font=("Tahoma", 14))
+        font=("Tahoma", 20)
+        ).pack(pady=10)
     
-    label.pack(pady=20)
+    frame = tk.Frame(add_window)
+    frame.pack(pady=10)
+    
+    # ชื่อลูกค้า 
+    tk.Label(frame, text= "ชื่อลูกค้า :").grid(row=0, column=0, sticky="w", pady=5)
+    entry_name = tk.Entry(frame, width=40)
+    entry_name.grid(row=0, column=1, padx=10)
+
+    # เลือกห้อง
+    tk.Label(frame, text="เลือกห้อง : ").grid(row=1, column=0, sticky="w", pady=5)
+    room_var = tk.StringVar()
+    combo_room = ttk.Combobox(
+        frame,
+        textvariable =room_var,
+        values = [str(i) for i in range(1,13)],
+        width = 37,
+        state = "readonly"
+    )
+    combo_room.grid(row=1,column=1,padx=10)
+    combo_room.set("1")
+    
+    
 
 # สร้างหน้าต่างหลัก App 
 root = tk.Tk()
 root.title("Resort Management System")
-root.geometry("1000x800")
+root.geometry("600x400")
 
 # ชื่อโปรแกรม
 label = tk.Label(
