@@ -31,10 +31,20 @@ def open_add_stay_window():
         state = "readonly"
     )
     combo_room.grid(row=1,column=1,padx=10)
-    combo_room.set("1")
+    
+    # เพิ่มจำนวนผู้เข้าพัก 
+    tk.Label(frame, text="จำนวนผู้เข้าพัก :").grid(row=2, column=0, sticky="w",pady=5)
+    cus_var = tk.StringVar()
+    cus_count = ttk.Combobox(
+        frame, 
+        textvariable= cus_var,
+        values= [str(i) for i in range(1,5)],
+        width= 37,
+        state = "readonly", 
+    )
+    cus_count.grid(row=2,column=1,padx=10)
     
     
-
 # สร้างหน้าต่างหลัก App 
 root = tk.Tk()
 root.title("Resort Management System")
