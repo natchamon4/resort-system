@@ -21,7 +21,7 @@ def open_add_stay_window():
     entry_name.grid(row=0, column=1, padx=10)
 
     # เลือกห้อง
-    tk.Label(frame, text="เลือกห้อง : ").grid(row=1, column=0, sticky="w", pady=5)
+    tk.Label(frame, text="ห้อง : ").grid(row=1, column=0, sticky="w", pady=5)
     room_var = tk.StringVar()
     combo_room = ttk.Combobox(
         frame,
@@ -38,7 +38,7 @@ def open_add_stay_window():
     cus_count = ttk.Combobox(
         frame, 
         textvariable= cus_var,
-        values= [str(i) for i in range(1,5)],
+        values= [str(i) for i in range(1,11)],
         width= 37,
         state = "readonly", 
     )
